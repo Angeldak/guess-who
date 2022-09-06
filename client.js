@@ -5,11 +5,14 @@ let currentGuess = "";
 let winningGuess = false;
 
 function appendDom() {
+    let newArray = people.map((e) => e);
     for (let i = 0; i < people.length; i++) {
-        const currentPerson = people[i];
+        // const currentPerson = people[randomNumber(0, 6)];
+        // const currentPerson = newArray.splice(randomNumber(0, newArray.length),1);
+        let currentPerson = newArray.splice(randomNumber(0, newArray.length - 1), 1)[0];
         $("#cohortImages").append(`
-            <img data-name="${currentPerson.name}" src="https://github.com/${currentPerson.githubUsername}.png?size=250" alt="Profile image of ${currentPerson.githubUsername}"></img>
-        `);
+                <img data-name="${currentPerson.name}" src="https://github.com/${currentPerson.githubUsername}.png?size=250" alt="Profile image of ${currentPerson.githubUsername}"></img>
+            `);
     }
 }
 
@@ -58,7 +61,7 @@ function clickHandler() {
 }
 
 function onReady() {
-    clickHandler()
+    clickHandler();
     appendDom();
     newGuess();
 }
