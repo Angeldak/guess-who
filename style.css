@@ -2,3 +2,13 @@
     background-color: blue;
     color: chartreuse;
 }
+
+.winnerText {
+    font-size: 5rem;
+    color: red;
+    text-align: center;
+}
+
+.winnerDiv {
+    width: 100vw;
+}

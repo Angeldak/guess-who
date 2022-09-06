@@ -3,6 +3,7 @@ $(onReady);
 
 let currentGuess = "";
 let winningGuess = false;
+let cheer = new Audio("http://soundbible.com/grab.php?id=480&type=mp3");
 
 function appendDom() {
     let newArray = people.map((e) => e);
@@ -44,11 +45,16 @@ function newGuess() {
 function victoryDeclaration() {
     if (winningGuess === true) {
         $("body").addClass("winner");
-        setTimeout(guessReset, 2000);
+        cheer.play();
+        $("#winnerDiv").append(`
+        <p class="winnerText">Winner!<p>
+        `);
+        setTimeout(guessReset, 6000);
         // $('body').css('color', 'green');
         // $('body').css('background-color', 'blue');
     } else {
         $("body").removeClass("winner");
+        $("#winnerDiv").remove();
     }
 }
 
