@@ -49,12 +49,12 @@ function victoryDeclaration() {
         $("#winnerDiv").append(`
         <p class="winnerText">Winner!<p>
         `);
-        setTimeout(guessReset, 6000);
+        setTimeout(guessReset, 5500);
         // $('body').css('color', 'green');
         // $('body').css('background-color', 'blue');
     } else {
         $("body").removeClass("winner");
-        $("#winnerDiv").remove();
+        $(".winnerText").remove();
     }
 }
 
