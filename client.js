@@ -27,6 +27,12 @@ function checkWinner(guess) {
     victoryDeclaration();
 }
 
+function guessReset() {
+    winningGuess = false;
+    newGuess();
+    victoryDeclaration()
+}
+
 function newGuess() {
     currentGuess = people[randomNumber(0, 6)].name;
     $("#currentGuess").text(currentGuess);
@@ -35,6 +41,9 @@ function newGuess() {
 function victoryDeclaration() {
     if (winningGuess === true) {
         $("body").addClass("winner");
+        setTimeout(guessReset, 2000);
+        // $('body').css('color', 'green');
+        // $('body').css('background-color', 'blue');
     } else {
         $("body").removeClass("winner");
     }
