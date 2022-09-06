@@ -20,15 +20,26 @@ function randomNumber(min, max) {
 function checkWinner(guess) {
     if (guess === currentGuess) {
         winningGuess = true;
+        alert("VICTORY!!  You guessed correct!")
     } else {
-        alert("Sorry try again!")
+        alert("WRONG! Jump off a bridge.")
     }
+    victoryDeclaration();
 }
 
 function newGuess() {
     currentGuess = people[randomNumber(0, 6)].name;
     $("#currentGuess").text(currentGuess);
 }
+
+function victoryDeclaration() {
+    if (winningGuess === true) {
+        $("body").addClass("winner");
+    } else {
+        $("body").removeClass("winner");
+    }
+}
+
 
 function clickHandler() {
     $("#cohortImages").on("click", "img", (event) => {
